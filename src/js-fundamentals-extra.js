@@ -89,7 +89,14 @@ function MakeSentence(string) {
 // with a reference to your function.
 //
 // TODO: write code below
+function FileExtension (fileName) {
+  const dot = '.'
+  if (!fileName.includes(dot)){
+    return ''
+  }
 
+  return fileName.substring(fileName.lastIndexOf(dot)+1)
+}
 
 
 // Range
@@ -102,6 +109,19 @@ function MakeSentence(string) {
 // with a reference to your function.
 //
 // TODO: write code below
+function Range (arr) {
+  let highest = 0
+  let lowest = Infinity
+  for (num of arr) {
+    if (num > highest) {
+      highest = num
+    }
+    if (num < lowest) {
+      lowest = num
+    }
+  }
+  return highest - lowest
+}
 
 
 
@@ -121,6 +141,19 @@ function MakeSentence(string) {
 // with a reference to your function.
 //
 // TODO: write code below
+function checkTransactions(transactions, balance, overdraft) {
+  for (let i=0; i<transactions.length; i++) {
+    const transaction = transactions[i]
+
+    balance = balance + transaction
+
+    // what is <-
+    if (balance<-overdraft) {
+      return false
+    }
+  }
+  return true
+}
 
 
 
@@ -136,6 +169,16 @@ function MakeSentence(string) {
 // with a reference to your function.
 //
 // TODO: write code below
+function FilmsInGenre(films, genre) {
+  const names = []
+  for (let i =0; i<films.length; i++) {
+    const film = films[i]
+    if (film.genres.includes(genre)) {
+      names.push(film.name)
+    }
+  }
+  return names
+}
 
 
 
@@ -154,14 +197,14 @@ module.exports = {
   d: MakeSentence, 
 
   //FileExtension
-  e: undefined,
+  e: FileExtension,
 
   //Range
-  f: undefined,
+  f: Range,
 
   //CheckTransactions
-  g: undefined,
+  g: checkTransactions,
 
   //FilmsInGenre
-  h: undefined,
+  h: FilmsInGenre,
 }
