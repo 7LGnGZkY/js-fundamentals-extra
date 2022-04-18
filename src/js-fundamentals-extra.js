@@ -7,6 +7,10 @@
 // with a reference to your function.
 //
 // TODO: write code below
+function SecondsInHours(hours){
+  const seconds = hours * 60 * 60
+  return seconds
+}
 
 
 
@@ -22,6 +26,10 @@
 // with a reference to your function.
 //
 // TODO: write code below
+function milesTravelled(speed, duration) {
+  const hours = duration/60
+  return Math.ceil(speed*hours)
+}
 
 
 
@@ -37,6 +45,10 @@
 //
 // TODO: write code below
 
+function KilometersToMiles (kilometers) {
+  let miles = Math.round(kilometers / 1.6)
+  return miles
+}
 
 
 // MakeSentence
@@ -52,6 +64,17 @@
 // with a reference to your function.
 //
 // TODO: write code below
+function MakeSentence(string) { 
+  let firstChar = string.charAt(0).toUpperCase()
+
+  const lastChar = string.charAt(string.length-1)
+
+  if (lastChar!=='.'&&lastChar!=='?'&&lastChar!=='!') {
+    return firstChar + string.substring(1) + '.'
+  }
+
+  else return firstChar + string.substring(1)
+}
 
 
 
@@ -119,16 +142,16 @@
 // TODO: change undefined to be the name of the functions you defined
 module.exports = {
   //SecondsInHours
-  a: undefined,
+  a: SecondsInHours,
 
   //MilesTravelled,
-  b: undefined,  
+  b: milesTravelled,  
 
   //KilometersToMiles,
-  c: undefined, 
+  c: KilometersToMiles, 
 
   //MakeSentence
-  d: undefined, 
+  d: MakeSentence, 
 
   //FileExtension
   e: undefined,
